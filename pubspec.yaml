@@ -74,6 +74,11 @@ flutter:
     - assets/images/image3.png
     - assets/images/imagec.png
     - assets/images/imagem.png
+    - assets/images/Billy 65.png
+    - assets/images/Ellipse 3.png
+    - assets/images/feather_sliders.png
+    - assets/images/avator.png
+    - assets/images/test.png
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware
 

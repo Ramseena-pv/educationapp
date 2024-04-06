@@ -1,5 +1,8 @@
 
-import 'package:education/education3.dart';
+
+
+import 'package:education/start_up.dart';
+
 
 
 import 'package:flutter/material.dart';
@@ -15,7 +18,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const MaterialApp(
-      home:Startup3(),
+      home:StartUp(),
     );
   }
 }

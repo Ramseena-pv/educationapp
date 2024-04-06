@@ -12,10 +12,7 @@ class StartUp extends StatelessWidget {
           Positioned(
             left: 0,
             top: 0,
-            child: Image.asset(
-              "assets/images/desk.jpg",
-             
-            ),
+            child: Image.asset("assets/images/desk.jpg"),
           ),
           Positioned(
             left: 0,
@@ -33,20 +30,14 @@ class StartUp extends StatelessWidget {
             left: 20,
             top: 20,
             child: Container(
-              child: Image.asset(
-                "assets/images/Time.png", 
-               
-              ),
+              child: Image.asset("assets/images/Time.png"),
             ),
           ),
           Positioned(
             left: 20,
             top: 60,
             child: Container(
-              child: Image.asset(
-                "assets/images/feather_arrow-left.png", 
-               
-              ),
+              child: Image.asset("assets/images/feather_arrow-left.png"),
             ),
           ),
           Positioned(
@@ -69,35 +60,26 @@ class StartUp extends StatelessWidget {
             right: 80,
             top: 20,
             child: Container(
-              child: Image.asset(
-                "assets/images/Reception.png", 
-                
-              ),
+              child: Image.asset("assets/images/Reception.png"),
             ),
           ),
           Positioned(
             right: 50,
             top: 20,
             child: Container(
-              child: Image.asset(
-                "assets/images/Wifi.png", 
-                
-              ),
+              child: Image.asset("assets/images/Wifi.png"),
             ),
           ),
           Positioned(
             right: 20,
             top: 20,
             child: Container(
-              child: Image.asset(
-                "assets/images/battery.png", 
-               
-              ),
+              child: Image.asset("assets/images/battery.png"),
             ),
           ),
           Positioned(
-            left: 92, 
-            top: 143, 
+            left: 92,
+            top: 143,
             child: Container(
               width: 232,
               height: 232,
@@ -115,7 +97,7 @@ class StartUp extends StatelessWidget {
           Positioned(
             left: 10,
             right: 0,
-            top: 390, 
+            top: 390,
             child: Center(
               child: Text(
                 'Akash Solanki',
@@ -132,7 +114,7 @@ class StartUp extends StatelessWidget {
           Positioned(
             left: 10,
             right: 0,
-            top: 410, 
+            top: 410,
             child: Center(
               child: Text(
                 '@antivirusakash',
@@ -177,86 +159,212 @@ class StartUp extends StatelessWidget {
           ),
           Positioned(
             left: 30,
-            top: 520,
-            child: Container(
-              width: 261,
-              height: 330,
-              decoration: ShapeDecoration(
-                gradient: LinearGradient(
-                  begin: Alignment(-0.20, -0.98),
-                  end: Alignment(0.2, 0.98),
-                  colors: [Color(0xFF7CA4E8), Color(0xFF517CCD)],
-                ),
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(10),
-                ),
-                shadows: [
-                  BoxShadow(
-                    color: Color(0x336392E8),
-                    blurRadius: 16,
-                    offset: Offset(0, 8),
-                    spreadRadius: 0,
-                  ),
-                  BoxShadow(
-                    color: Color(0x336190E8),
-                    blurRadius: 20,
-                    offset: Offset(0, 12),
-                    spreadRadius: 0,
-                  )
-                ],
-              ),
-              child: Stack(
+            bottom: 15, // Adjust the bottom position as needed
+            right: 0,
+            child: SingleChildScrollView(
+              scrollDirection: Axis.horizontal,
+              child: Row(
+                crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Positioned(
-                    right: 30,
-                    bottom: 80,
-                    child: Image.asset('assets/images/Billy 31.png'), 
-                  ),
-                  Positioned(
-                    left: 180, 
-                    top: 5,
-                    child: Image.asset('assets/images/circle.png'), 
-                  ),
-                  Positioned(
-                    left: 0,
-                    right: 30,
-                    bottom: 80,
-                    child: Center(
-                      child: Text(
-                        'Growing Startup without ',
-                        style: TextStyle(
-                          color: Colors.white,
-                          fontSize: 18,
-                          fontFamily: 'Montserrat',
-                          fontWeight: FontWeight.w700,
-                          height: 0.09,
-                        ),
+                  Container(
+                    margin: EdgeInsets.only(right: 20),
+                    width: 261,
+                    height: 330,
+                    decoration: ShapeDecoration(
+                      gradient: LinearGradient(
+                        begin: Alignment(-0.20, -0.98),
+                        end: Alignment(0.2, 0.98),
+                        colors: [Color(0xFF7CA4E8), Color(0xFF517CCD)],
                       ),
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(10),
+                      ),
+                      shadows: [
+                        BoxShadow(
+                          color: Color(0x336392E8),
+                          blurRadius: 16,
+                          offset: Offset(0, 8),
+                          spreadRadius: 0,
+                        ),
+                        BoxShadow(
+                          color: Color(0x336190E8),
+                          blurRadius: 20,
+                          offset: Offset(0, 12),
+                          spreadRadius: 0,
+                        )
+                      ],
+                    ),
+                    child: Stack(
+                      children: [
+                        Positioned(
+                          right: 30,
+                          bottom: 80,
+                          child: Image.asset('assets/images/Billy 31.png'),
+                        ),
+                        Positioned(
+                          left: 180,
+                          top: 5,
+                          child: Image.asset('assets/images/circle.png'),
+                        ),
+                        Positioned(
+                          left: 0,
+                          right: 30,
+                          bottom: 80,
+                          child: Center(
+                            child: Text(
+                              'Growing Startup without ',
+                              style: TextStyle(
+                                color: Colors.white,
+                                fontSize: 18,
+                                fontFamily: 'Montserrat',
+                                fontWeight: FontWeight.w700,
+                                height: 0.09,
+                              ),
+                            ),
+                          ),
+                        ),
+                        Positioned(
+                          left: 0,
+                          right: 138,
+                          bottom: 50,
+                          child: Center(
+                            child: Text(
+                              'Sales Team',
+                              style: TextStyle(
+                                color: Colors.white,
+                                fontSize: 18,
+                                fontFamily: 'Montserrat',
+                                fontWeight: FontWeight.w700,
+                                height: 0.09,
+                              ),
+                            ),
+                          ),
+                        ),
+                        Positioned(
+                          left: 13,
+                          top: 295,
+                          child: Image.asset('assets/images/Ellipse 3.png'),
+                        ),
+                         Positioned(
+                         left: 50,
+                          top: 305,
+                          child: Center(
+                            child: Text(
+                              'Kunal Shah',
+                              style: TextStyle(
+                                color: Colors.white,
+                                fontSize: 12,
+                                fontFamily: 'Montserrat',
+                                fontWeight: FontWeight.w500,
+                                height: 0,
+                              ),
+                            ),
+                          ),
+                        ),
+                      ],
                     ),
                   ),
-                  Positioned(
-                    left: 0,
-                    right: 138,
-                    bottom: 50,
-                    child: Center(
-                      child: Text(
-                        'Sales Team',
-                        style: TextStyle(
-                          color: Colors.white,
-                          fontSize: 18,
-                          fontFamily: 'Montserrat',
-                          fontWeight: FontWeight.w700,
-                          height: 0.09,
-                        ),
+                  Container(
+                    margin: EdgeInsets.only(right: 20),
+                    width: 261,
+                    height: 330,
+                    decoration: ShapeDecoration(
+                      gradient: LinearGradient(
+                        begin: Alignment(-0.20, -0.98),
+                        end: Alignment(0.2, 0.98),
+                        colors: [Color(0xFF7CA4E8), Color(0xFF517CCD)],
                       ),
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(10),
+                      ),
+                      shadows: [
+                        BoxShadow(
+                          color: Color(0x336392E8),
+                          blurRadius: 16,
+                          offset: Offset(0, 8),
+                          spreadRadius: 0,
+                        ),
+                        BoxShadow(
+                          color: Color(0x336190E8),
+                          blurRadius: 20,
+                          offset: Offset(0, 12),
+                          spreadRadius: 0,
+                        )
+                      ],
+                    ),
+                    child: Stack(
+                      children: [
+                        Positioned(
+                          right: 30,
+                          bottom: 110,
+                          child: Image.asset('assets/images/Billy 65.png'),
+                        ),
+                        Positioned(
+                          left: 180,
+                          top: 5,
+                          child: Image.asset('assets/images/circle.png'),
+                        ),
+                        Positioned(
+                          left: 0,
+                          right: 30,
+                          bottom: 80,
+                          child: Center(
+                            child: Text(
+                              'Find Powerful Tips for',
+                              style: TextStyle(
+                                color: Colors.white,
+                                fontSize: 18,
+                                fontFamily: 'Montserrat',
+                                fontWeight: FontWeight.w700,
+                                height: 0.09,
+                              ),
+                            ),
+                          ),
+                        ),
+                        Positioned(
+                          left: 25,
+                          bottom: 50,
+                          child: Center(
+                            child: Text(
+                              'Wealth & Success',
+                              style: TextStyle(
+                                color: Colors.white,
+                                fontSize: 18,
+                                fontFamily: 'Montserrat',
+                                fontWeight: FontWeight.w700,
+                                height: 1.0,
+                              ),
+                            ),
+                          ),
+                        ),
+                        Positioned(
+                          left: 25,
+                          top: 290,
+                          child: Image.asset('assets/images/Ellipse 3.png'),
+                        ),
+                         Positioned(
+                         left: 55,
+                          top: 300,
+                          child: Center(
+                            child: Text(
+                              'Kunal Shah',
+                              style: TextStyle(
+                                color: Colors.white,
+                                fontSize: 12,
+                                fontFamily: 'Montserrat',
+                                fontWeight: FontWeight.w500,
+                                height: 0,
+                              ),
+                            ),
+                          ),
+                        ),
+                      ],
                     ),
                   ),
-                  
                 ],
               ),
             ),
           ),
-          
         ],
       ),
     );
