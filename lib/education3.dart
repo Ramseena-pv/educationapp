@@ -1,22 +1,81 @@
+import 'package:education/menu.dart';
 import 'package:flutter/material.dart';
 
-class Startup3 extends StatelessWidget {
+
+class Startup3 extends StatefulWidget {
   const Startup3({Key? key}) : super(key: key);
+
+  @override
+  _Startup3State createState() => _Startup3State();
+}
+  class _Startup3State extends State<Startup3> {
+  bool _isMenuOpen = false;
+
+  void _toggleMenu() {
+    setState(() {
+      _isMenuOpen = !_isMenuOpen;
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: const Color(0xFFF5F8FF),
-      body: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
+      body: Stack(
         children: [
-          Padding(
-            padding: const EdgeInsets.only(top: 50, left: 20, right: 10),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.start,
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Container(
+          AnimatedPositioned(
+            duration: Duration(milliseconds: 300),
+            left: _isMenuOpen ? MediaQuery.of(context).size.width * 0.75 : 0,
+            child: GestureDetector(
+              onTap: () {
+                if (_isMenuOpen) {
+                  _toggleMenu();
+                }
+              },
+              child: Container(
+                width: MediaQuery.of(context).size.width,
+                height: MediaQuery.of(context).size.height,
+                color: Colors.transparent,
+                child: StartupPageContent(toggleMenu: _toggleMenu),
+              ),
+            ),
+          ),
+          if (_isMenuOpen)
+            Positioned(
+              left: 0,
+              top: 0,
+              width: MediaQuery.of(context).size.width * 0.75, // Adjust width to 75% of screen width
+              height: MediaQuery.of(context).size.height,
+              child: Menu(
+                isOpen: _isMenuOpen,
+                onClose: _toggleMenu,
+              ),
+            ),
+        ],
+      ),
+    );
+  }
+}
+
+class StartupPageContent extends StatelessWidget {
+  final VoidCallback toggleMenu;
+
+  const StartupPageContent({Key? key, required this.toggleMenu}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Padding(
+          padding: const EdgeInsets.only(top: 50, left: 20, right: 10),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.start,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              GestureDetector(
+                onTap: toggleMenu,
+                child: Container(
                   width: 40,
                   height: 32,
                   decoration: BoxDecoration(
@@ -27,53 +86,54 @@ class Startup3 extends StatelessWidget {
                     ),
                   ),
                 ),
-                SizedBox(width: 20),
-                Text(
-                  'Hi, Akash 👋',
-                  style: TextStyle(
-                    color: Color(0xFF2A3447),
-                    fontSize: 20,
-                    fontFamily: 'Montserrat',
-                    fontWeight: FontWeight.w700,
-                  ),
-                ),
-                Spacer(),
-                Container(
-                  width: 40,
-                  height: 40,
-                  decoration: BoxDecoration(
-                    shape: BoxShape.circle,
-                    image: DecorationImage(
-                      image: AssetImage('assets/images/image00.gif'),
-                      fit: BoxFit.fill,
-                    ),
-                  ),
-                ),
-              ],
-            ),
-          ),
-          SizedBox(
-            width: 366,
-            child: Padding(
-              padding: const EdgeInsets.only(left: 20, top: 50),
-              child: Text(
-                'Find your favorite startup',
+              ),
+              SizedBox(width: 20),
+              Text(
+                'Hi, Akash 👋',
                 style: TextStyle(
                   color: Color(0xFF2A3447),
-                  fontSize: 24,
+                  fontSize: 20,
                   fontFamily: 'Montserrat',
                   fontWeight: FontWeight.w700,
-                  height: 0.07,
                 ),
+              ),
+              Spacer(),
+              Container(
+                width: 40,
+                height: 40,
+                decoration: BoxDecoration(
+                  shape: BoxShape.circle,
+                  image: DecorationImage(
+                    image: AssetImage('assets/images/image00.gif'),
+                    fit: BoxFit.fill,
+                  ),
+                ),
+              ),
+            ],
+          ),
+        ),
+        SizedBox(
+          width: 366,
+          child: Padding(
+            padding: const EdgeInsets.only(left: 20, top: 50),
+            child: Text(
+              'Find your favorite startup',
+              style: TextStyle(
+                color: Color(0xFF2A3447),
+                fontSize: 24,
+                fontFamily: 'Montserrat',
+                fontWeight: FontWeight.w700,
+                height: 0.07,
               ),
             ),
           ),
-          SizedBox(
-            height: 100,
-            child: Padding(
-              padding: const EdgeInsets.only(left: 20, top: 40),
-              child: Text(
-                'courses here',
+        ),
+        SizedBox(
+          height: 100,
+          child: Padding(
+            padding: const EdgeInsets.only(left: 20, top: 40),
+            child: Text(
+              'courses here',
                 style: TextStyle(
                   color: Color(0xFF2A3447),
                   fontSize: 24,
@@ -135,7 +195,7 @@ class Startup3 extends StatelessWidget {
                   ),
                 ),
               ),
-              SizedBox(width: 15),
+              SizedBox(width: 25),
               Container(
                 width: 48,
                 height: 48,
@@ -227,7 +287,7 @@ class Startup3 extends StatelessWidget {
                     width: 261,
                     height: 330,
                     decoration: ShapeDecoration(
-                      gradient: LinearGradient(
+                      gradient: const LinearGradient(
                         begin: Alignment(0.07, -1.00),
                         end: Alignment(-0.07, 1),
                         colors: [Color(0xFFFFAC70), Color(0xFFFF844F)],
@@ -235,7 +295,7 @@ class Startup3 extends StatelessWidget {
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(10),
                       ),
-                      shadows: [
+                      shadows: const [
                         BoxShadow(
                           color: Color(0x4CFF7171),
                           blurRadius: 20,
@@ -255,8 +315,8 @@ class Startup3 extends StatelessWidget {
                         Padding(
                           padding: const EdgeInsets.only(left: 200),
                           child: Container(
-                            width: 150,
-                            height: 40,
+                            width: 200,
+                            height: 60,
                             child: Image.asset('assets/images/circle.png'),
                           ),
                         ),
@@ -266,7 +326,7 @@ class Startup3 extends StatelessWidget {
                           child: Container(
                             width: 111.32,
                             height: 170,
-                            decoration: BoxDecoration(
+                            decoration: const BoxDecoration(
                               image: DecorationImage(
                                 image: AssetImage('assets/images/avator.png'),
                                 fit: BoxFit.cover,
@@ -282,7 +342,7 @@ class Startup3 extends StatelessWidget {
                             ),
                           ),
                         ),
-                        Positioned(
+                        const Positioned(
                           top: 240,
                           left: 20,
                           child: SizedBox(
@@ -299,7 +359,7 @@ class Startup3 extends StatelessWidget {
                             ),
                           ),
                         ),
-                        Positioned(
+                        const Positioned(
                           top: 260,
                           left: 20,
                           child: SizedBox(
@@ -316,35 +376,40 @@ class Startup3 extends StatelessWidget {
                             ),
                           ),
                         ),
-                        Positioned(
-                          top: 289,
-                          left: 20,
-                          child: Container(
-                            width: 28,
-                            height: 28,
-                            decoration: ShapeDecoration(
-                              image: DecorationImage(
-                                image: AssetImage("assets/images/ellipse 3.png"),
-                                fit: BoxFit.fill,
-                              ),
-                              shape: CircleBorder(),
-                            ),
-                          ),
-                        ),
-                        Positioned(
-                          top: 297,
-                          left: 60,
-                          child: Text(
-                            'Ankur Warikoo',
-                            style: TextStyle(
-                              color: Colors.white,
-                              fontSize: 12,
-                              fontFamily: 'Montserrat',
-                              fontWeight: FontWeight.w500,
-                              height: 0,
-                            ),
-                          ),
-                        ),
+    Stack(
+  children: [
+    Positioned(
+      top: 290,
+      left: 20,
+      child: Container(
+        width: 28,
+        height: 28,
+        decoration: ShapeDecoration(
+          shape: CircleBorder(),
+          image: DecorationImage(
+            fit: BoxFit.fill,
+            image: AssetImage('assets/images/Ellipse1.png'),
+          ),
+        ),
+      ),
+    ),
+    Positioned(
+      top: 297,
+      left: 60,
+      child: Text(
+        'Ankur Warikoo',
+        style: TextStyle(
+          color: Colors.white,
+          fontSize: 12,
+          fontFamily: 'Montserrat',
+          fontWeight: FontWeight.w500,
+          height: 0,
+        ),
+      ),
+    ),
+  ],
+               ),
+
                         Positioned(
                           top: 250,
                           left: 130,
@@ -422,6 +487,7 @@ class Startup3 extends StatelessWidget {
                           ),
                         ),
                       ],
+                    
                     ),
                   ),
                 ),
@@ -458,9 +524,9 @@ class Startup3 extends StatelessWidget {
                       Padding(
                         padding: const EdgeInsets.only(left: 200),
                         child: Container(
-                          width: 150,
-                          height: 40,
-                          child: Image.asset('assets/images/ant-design_play-circle-filled (1).png'),
+                          width: 200,
+                          height: 60,
+                          child: Image.asset('assets/images/circle.png'),
                         ),
                       ),
                       Positioned(
@@ -527,7 +593,7 @@ class Startup3 extends StatelessWidget {
                           height: 28,
                           decoration: ShapeDecoration(
                             image: DecorationImage(
-                              image: AssetImage("assets/images/ellipse 3.png"),
+                              image: AssetImage("assets/images/Ellipse1.png"),
                               fit: BoxFit.fill,
                             ),
                             shape: CircleBorder(),
@@ -630,14 +696,14 @@ class Startup3 extends StatelessWidget {
               ],
             ),
           ),
-          SizedBox(height: 0),
+          SizedBox(height: 30),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Padding(
                 padding: const EdgeInsets.only(left: 15),
                 child: Text(
-                  'Courses by mentors',
+                  'Courses by Mentors',
                   style: TextStyle(
                     color: Color(0xFF2A3447),
                     fontSize: 20,
@@ -682,11 +748,11 @@ class Startup3 extends StatelessWidget {
                     child: Row(
                       children: [
                         Container(
-                          width: 44,
+                          width: 60,
                           height: 44,
                           decoration: ShapeDecoration(
                             image: DecorationImage(
-                              image: AssetImage("assets/images/ellipse 3.png"),
+                              image: AssetImage("assets/images/Ellipse1b.png"),
                               fit: BoxFit.fill,
                             ),
                             shape: CircleBorder(),
@@ -698,7 +764,7 @@ class Startup3 extends StatelessWidget {
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
                             Text(
-                              'Design Thinking',
+                              'ankur warko',
                               style: TextStyle(
                                 color: Colors.white,
                                 fontSize: 16,
@@ -707,9 +773,9 @@ class Startup3 extends StatelessWidget {
                                 height: 0.07,
                               ),
                             ),
-                            SizedBox(height: 4),
+                            SizedBox(height: 15),
                             Text(
-                              'Jayvardhan Sejpal',
+                              'Founder nearby mentor',
                               style: TextStyle(
                                 color: Color(0xFFCFDDFF),
                                 fontSize: 12,
@@ -737,7 +803,7 @@ class Startup3 extends StatelessWidget {
                     gradient: LinearGradient(
                       begin: Alignment(-0.50, 0.86),
                       end: Alignment(0.5, -0.86),
-                      colors: [Color(0xFF0052D4), Color(0xFF4364F7), Color(0xFF6FB1FC)],
+                      colors: [Colors.black, Color(0xFF2D2C2C), Color(0xFF626262)],
                     ),
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(20),
@@ -754,11 +820,11 @@ class Startup3 extends StatelessWidget {
                   child: Row(
                     children: [
                       Container(
-                        width: 44,
+                        width: 60,
                         height: 44,
                         decoration: ShapeDecoration(
                           image: DecorationImage(
-                            image: AssetImage("assets/images/ellipse 3.png"),
+                            image: AssetImage("assets/images/Ellipse3b.png"),
                             fit: BoxFit.fill,
                           ),
                           shape: CircleBorder(),
@@ -770,7 +836,7 @@ class Startup3 extends StatelessWidget {
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
                           Text(
-                            'Design Thinking',
+                            'Kunal singh',
                             style: TextStyle(
                               color: Colors.white,
                               fontSize: 16,
@@ -779,9 +845,9 @@ class Startup3 extends StatelessWidget {
                               height: 0.07,
                             ),
                           ),
-                          SizedBox(height: 4),
+                          SizedBox(height: 15),
                           Text(
-                            'Jayvardhan Sejpal',
+                            'Founder CRED',
                             style: TextStyle(
                               color: Color(0xFFCFDDFF),
                               fontSize: 12,
@@ -804,7 +870,7 @@ class Startup3 extends StatelessWidget {
             ),
           ),
         ],
-      ),
     );
+    
   }
 }
