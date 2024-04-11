@@ -1,4 +1,5 @@
-import 'package:education/eduacation2.dart';
+
+import 'package:education/education3.dart';
 import 'package:flutter/material.dart';
 
 
@@ -10,7 +11,7 @@ class education1 extends StatelessWidget {
       body: Container(
         width: 414,
         height: 896,
-        decoration: BoxDecoration(
+        decoration: const BoxDecoration(
           gradient: LinearGradient(
             begin: Alignment(0.07, -1.00),
             end: Alignment(-0.07, 1),
@@ -180,30 +181,28 @@ class education1 extends StatelessWidget {
                               ),
                             ],
                           ),
-                          child: TextButton(
-                            onPressed: () {
-                              // Navigate to education2 page when "Get Started" button is pressed
-                              Navigator.push(
-                                context,
-                                MaterialPageRoute(builder: (context) => education2()),
-                              );
-                            },
+
                             child: Center(
-                              child: Text(
-                                'Get Started',
-                                textAlign: TextAlign.center,
-                                style: TextStyle(
-                                  color: Colors.white,
-                                  fontSize: 20,
-                                  fontFamily: 'Montserrat',
-                                  fontWeight: FontWeight.w600,
-                                  height: 0.11,
+                              child:GestureDetector(
+          onTap: () {
+            Navigator.push(context, MaterialPageRoute(builder: (context) => const Startup3()));
+          },
+                                child: Text(
+                                  'Get Started',
+                                  textAlign: TextAlign.center,
+                                  style: TextStyle(
+                                    color: Colors.white,
+                                    fontSize: 20,
+                                    fontFamily: 'Montserrat',
+                                    fontWeight: FontWeight.w600,
+                                    height: 0.11,
+                                  ),
                                 ),
                               ),
                             ),
                           ),
                         ),
-                      ),
+                
                     ],
                   ),
                 ),

@@ -1,4 +1,5 @@
 import 'package:education/menu.dart';
+import 'package:education/start_up.dart';
 import 'package:flutter/material.dart';
 
 
@@ -98,7 +99,11 @@ class StartupPageContent extends StatelessWidget {
                 ),
               ),
               Spacer(),
-              Container(
+              GestureDetector(
+          onTap: () {
+            Navigator.push(context, MaterialPageRoute(builder: (context) => const StartUp()));
+          },
+              child:Container(
                 width: 40,
                 height: 40,
                 decoration: BoxDecoration(
@@ -108,6 +113,7 @@ class StartupPageContent extends StatelessWidget {
                     fit: BoxFit.fill,
                   ),
                 ),
+              ),
               ),
             ],
           ),

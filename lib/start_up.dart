@@ -1,3 +1,4 @@
+import 'package:education/education1.dart';
 import 'package:flutter/material.dart';
 
 class StartUp extends StatelessWidget {
@@ -37,7 +38,10 @@ class StartUp extends StatelessWidget {
             left: 20,
             top: 60,
             child: Container(
-              child: Image.asset("assets/images/feather_arrow-left.png"),
+              child: GestureDetector(
+          onTap: () {
+            Navigator.push(context, MaterialPageRoute(builder: (context) => const education1()));
+          },child: Image.asset("assets/images/feather_arrow-left.png")),
             ),
           ),
           Positioned(
